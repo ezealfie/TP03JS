@@ -19,10 +19,20 @@ function verificarIntento() {
 
 
     }
+    if(resultado == document.getElementById('incongitas').innerText){
+document.getElementById('intentos').innerText--;
+    }
     if (!resultado.includes("_")) {
         document.getElementById('estado').innerText = 'GANASTE'
         document.getElementById('estado').style.color = 'green';
+        document.getElementById('boton').disabled = true;
 
+
+    }
+    if (document.getElementById('intentos').innerText == 0){
+          document.getElementById('estado').innerText = 'PERDISTE'
+        document.getElementById('estado').style.color = 'red';
+        document.getElementById('boton').disabled = true;
     }
     console.log(resultado);
     document.getElementById('incongitas').innerText = resultado;
