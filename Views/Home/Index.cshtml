@@ -5,13 +5,14 @@
 <div class="text-center">
     <h1 class="display-4">Ahorcado</h1>
 <p>El ahorcado es un juego clásico de lápiz y papel donde un jugador piensa una palabra oculta y los demás intentan adivinarla letra por letra. Por cada letra incorrecta, perderas un intento. El objetivo es adivinar la palabra antes de quedarte sin intentos</p>
+
 <h4>Intentos restantes: </h4>
 <h4 id = "intentos">10</h4>
-<p class = "letras" id = "incongitas">
-        @for(int i = 0; i < ViewBag.palabra.Length; i++)
-        {
-            @Html.Raw( value: "_"); 
-        }
+<p class="letras" id="incongitas" style="letter-spacing: 15px; font-size: 24px; font-weight: bold;">
+    @for(int i = 0; i < ViewBag.palabra.Length; i++)
+    {
+        @Html.Raw(  value: "_"); 
+    }
 </p>
 <form>
 <input type="hidden" id="palabra" value="@ViewBag.palabra">
