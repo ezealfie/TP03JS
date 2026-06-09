@@ -3,15 +3,43 @@
 
 // Write your JavaScript code.
 
+let usadas = [];
+function letrasUsadas(intento) {
+
+
+
+    if (usadas.includes(intento)) {
+        console.log('usada');
+        return (true);
+    }
+    else {
+     usadas.push(intento);
+        return (false);
+    }
+
+
+}
 
 function verificarIntento() {
     let intento = document.getElementById('intento').value;
     let palabra = document.getElementById('palabra').value;
-    let resultado = ""; 
+    let resultado = "";
     console.log(palabra)
+    if (letrasUsadas(intento)) {
+
+        document.getElementById('estado').innerText = 'La letra ya ha sido usada. ';
+     document.getElementById('estado').style.color = 'yellow'; 
+ 
+
+    }
+    else
+     {
+        document.getElementById('estado').innerText = '';
+
+    
     for (i = 0; i < palabra.length; i++) {
         if (palabra[i].toUpperCase() === intento.toUpperCase()) {
-            resultado += intento.toUpperCase() ;
+            resultado += intento.toUpperCase();
         }
         else {
             resultado += document.getElementById('incongitas').innerText[i];
@@ -19,8 +47,8 @@ function verificarIntento() {
 
 
     }
-    if(resultado == document.getElementById('incongitas').innerText){
-document.getElementById('intentos').innerText--;
+    if (resultado == document.getElementById('incongitas').innerText) {
+        document.getElementById('intentos').innerText--;
     }
     if (!resultado.includes("_")) {
         document.getElementById('estado').innerText = 'GANASTE'
@@ -29,12 +57,12 @@ document.getElementById('intentos').innerText--;
 
 
     }
-    if (document.getElementById('intentos').innerText == 0){
-          document.getElementById('estado').innerText = 'PERDISTE'
+    if (document.getElementById('intentos').innerText == 0) {
+        document.getElementById('estado').innerText = 'PERDISTE'
         document.getElementById('estado').style.color = 'red';
         document.getElementById('boton').disabled = true;
     }
     console.log(resultado);
     document.getElementById('incongitas').innerText = resultado;
-
+     }
 }
