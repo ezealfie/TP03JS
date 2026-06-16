@@ -1,6 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Agregar Palabra";
 }
 <h1>@ViewData["Title"]</h1>
+<h3>Para ingresar una palabra nueva complete el formulario con una palabra de al menos 8 letras.</h3>
+<form action='@Url.Action("GuardarPalabra", "Home")' method="get">
+    <input type="text" name="palabra" placeholder="Ingrese una palabra" minlength="8">
+    <br>
+    <input type="submit" value="Enviar">
+</form>
 
-<p>Use this page to detail your site's privacy policy.</p>
+    <h3 color="red"> @ViewBag.estado</h3>

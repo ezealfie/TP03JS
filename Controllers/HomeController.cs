@@ -20,10 +20,18 @@ public class HomeController : Controller
         ViewBag.palabra = palabra;
         return View();
     }
-
     public IActionResult Privacy()
     {
         return View();
+    }
+
+    [HttpGet]
+    public IActionResult GuardarPalabra(string palabra)
+    {
+        PalabrasAhorcado palabras = new PalabrasAhorcado();
+        bool estado = palabras.AgregarPalabra(palabra);
+        ViewBag.estado = estado == true ? "Esta en la BASE" : "Palabra Agregada";
+        return View("Privacy");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
