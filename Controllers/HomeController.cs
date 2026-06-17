@@ -29,8 +29,8 @@ public class HomeController : Controller
     public IActionResult GuardarPalabra(string palabra)
     {
         PalabrasAhorcado palabras = new PalabrasAhorcado();
-        bool estado = palabras.AgregarPalabra(palabra);
-        ViewBag.estado = estado == true ? "Esta en la BASE" : "Palabra Agregada";
+        bool estado = palabras.AgregarPalabra(palabra.ToUpper());
+        ViewBag.estado = estado == true ? "Palabra Agregada" :  "Esta en la BASE";
         return View("Privacy");
     }
 
